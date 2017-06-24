@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>Survey Form</title>
+    {% load staticfiles %}
+    <link rel="stylesheet" href={% static 'survey_app/css/style.css' %}>
+  </head>
+  <body>
+    <p>Thanks for submitting this form!
+      {% if request.session.num > 1 %}
+        You have submitted this form {{ request.session.num }} times now.</p>
+      {% else %}
+        </p>
+      {% endif %}
+    <form action="/goback">
+    {% csrf_token %}
+      <h4>Submitted Information</h4>
+      <label for="storedname">Name:</label>
+      <p id="storedname">{{ request.session.name }}</p>
+      <label for="storedlocation">Dojo Location:</label>
+      <p id="storedlocation">{{ request.session.location }}</p>
+      <label for="storedlanguage">Favorite Language:</label>
+      <p id="storedlanguage">{{ request.session.language }}</p>
+      <label for="storedcomment">Comment:</label>
+      <p id="storedcomment">{{ request.session.comment }}</p>
+      <button type="submit" name="goback">Go Back</button>
+    </form>
+  </body>
+</html>

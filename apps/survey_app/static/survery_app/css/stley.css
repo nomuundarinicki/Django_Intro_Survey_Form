@@ -1,0 +1,33 @@
+:not(button){
+  padding: 0;
+  margin: 0;
+}
+body{
+  text-align: center;
+}
+form{
+  text-align: left;
+  display: block;
+  width: 800px;
+  height: 600px;
+}
+form *{
+  display: inline-block;
+  width: 370px;
+  vertical-align: top;
+}
+#language+label, #comment{
+  display: block;
+  width: 800px;
+}
+#comment+button{
+  display: inline-block;
+  width: 200px;
+}
+h4+label, p+label{
+  display: inline-block;
+  width: 380px;
+}
+h4{
+  display: block;
+}
